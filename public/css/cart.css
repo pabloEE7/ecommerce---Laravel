@@ -1,0 +1,33 @@
+.content_{
+	width: 100%;
+	min-height: 100vh;
+	background-color: white;
+
+}
+.content_blogal{	
+	padding: 20px;
+}
+
+
+.botones_compra{
+	float: right;
+}
+.boton-delete{
+	width: 30px;
+	height: 30px;
+	padding: 0;
+}
+.item_precio{
+	padding-right: 100px;
+}
+@media (max-width: 770px) {
+    .botones_compra{
+    	float: none;    	
+    }
+    .content_botones button{
+        width: 100%;
+    }
+    .item_precio{
+	    padding-right: 10px;
+    }
+}

@@ -1,0 +1,79 @@
+.content_{
+	/*width: 100%;*/
+	min-height: 100vh;
+	background-color: white;
+
+}
+.content_blogal{	
+	padding: 20px;
+}
+.panel_{
+}
+.panel_product{
+	padding: 10px;
+	/*border: 1px solid #DDDDDD;*/
+}
+
+@media (min-width: 770px) {
+    .panel_product{
+    	margin-left: auto;
+    }
+}
+.content_image_select{
+	width: 100%;
+	height: 450px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #DDDDDD;
+}
+.image_select{
+	width: 98%;
+	margin: auto;
+	
+}
+.image_select img{
+	width: auto;
+	max-height: 400px;
+	margin: auto;
+}  
+.content_images{
+    width: 100%;
+    display: flex;
+}
+.images{
+
+	width: 60px;
+	height: 60px;
+	margin: 8px 8px 8px 0;
+	border: 1px solid #DDDDDD;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.images img{
+	width: auto;
+	max-height: 60px;
+	margin: auto;
+} 
+
+.content_cantidad{}
+.botones_pago{
+	width: 100%;
+	padding: 15px;
+}
+
+@media (max-width: 600px) {
+    .content_image_select{
+	    height: 250px;
+	}
+	.image_select img{
+	    max-height: 200px;
+    }  
+    .images img{
+	    width: auto;
+	    max-height: 30px;
+    }
+}
+
