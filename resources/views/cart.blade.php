@@ -22,11 +22,9 @@
 	            	</form>	            	
 	            </div>	            		
 	        </div>
-	        <div class="container">
-	        	<div class="row pt-3 pb-3">
-	            <div class="col-12">
+	        <div class="container pt-5 pb-5">
 	            	@foreach( session('cart') as $lista)
-	            	<div class="content_item row pt-4 ">
+	            	<div class="content_item row pt-4">
 	            		<div class="col-6 d-flex">
 	            			<div class="item_img ">
 	            				<img src="{{ asset( '/storage/'. $lista['image']) }}">
@@ -36,11 +34,12 @@
 	                            <p>${{ $lista['precio_u']}} x{{ $lista['cantidad']}}</p>
 	            			</div>	                        	            			
 	            		</div>
-	            		<div class="col-6 d-flex  justify-content-end">
-	            			
+	            		<div class="col-6 d-flex  justify-content-end">	            			
 	            			<p class="item_precio ">${{ $lista['precio']}}</p>
 	            			<div class="item_delete">
-	            				<a href="{{ route('cart.delete', $lista['id']) }}">x</a> 
+	            				<form action="{{ route('cart.delete', $lista['id']) }}" method="GET">
+	            		            <button type="buttom" class="">x</button>
+	            	            </form>		            				
 	            			</div>	                                               
 	            		</div>	            			        
 	            	</div>
@@ -50,9 +49,7 @@
 	                	    <button class="btn button rounded-0 mt-5">Continuar comprando</button>
 	                	</a>
 	                	<button class="btn botones_compra button-primary rounded-0 mt-5">Procesar compra</button>
-                    </div>                      	
-	            </div>
-	            </div> 	        	
+                    </div> 	        	
 	        </div>
 	    @endif
 	</div>	

@@ -13,9 +13,10 @@
 	float: right;
 }
 .boton-delete{
-	width: 30px;
-	height: 30px;
-	padding: 0;
+    background-color: red;
+}
+.content_item{
+	width: 100%;
 }
 .item_img img{
 	width: auto; 
@@ -23,10 +24,12 @@
 	margin: auto;
 }
 .item_precio{
-	padding-right: 100px;
+	padding-right: 10px;
 }
-.item_delete a{
-	background-color: #F5F5F5; 
+.item_delete button{
+	border: none;
+	outline: none;
+	background-color: #F5F5F5;
 	padding: 8px 14px 8px 14px;
 }
 

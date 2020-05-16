@@ -46,7 +46,7 @@
                             <a class="a" href="#">Categorias</a>
                         </li>
                         <li class="">
-                            <a class="a" href="{{route('cart.index')}}">cart<a>
+                            <a class="a" href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart"></i><a>
                         </li>
                     </ul>
                 </div>

@@ -12,12 +12,16 @@ class CartController extends Controller
 {
     //
     public function index(){
-    	return view('cart');
+    	return  view('cart');
     }
 
     public function store(Request $request){
 
-    	$id = $request->input('id');
+        if (empty($request)) {
+            return  view('cart');
+        }
+
+        $id = $request->input('id');
         $cantidad = $request->input('cantidad');
         $precio_u = $request->input('precio_u');
         $precio = $request->input('precio');      
