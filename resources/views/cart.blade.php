@@ -9,7 +9,11 @@
 <div class="content_">
 	<div class="panel_global">
 		@if(!session('cart'))
-	        <p>no hay elementos en el carrito</p>
+	        <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+	        	<div class="alert alert-danger" role="alert">
+                    El carrito esta vacio!
+                </div>
+	        </div>
 	    @else	        
 	        <div class="text-right">
 	            <div class=" p-3">
@@ -22,25 +26,29 @@
 	        	<div class="row pt-3 pb-3">
 	            <div class="col-12">
 	            	@foreach( session('cart') as $lista)
-	            	<div class="content_item row pt-4">
+	            	<div class="content_item row pt-4 ">
 	            		<div class="col-6 d-flex">
-	            			<div class="item_img w-25">
-	            				<p>imagen</p>
+	            			<div class="item_img ">
+	            				<img src="{{ asset( '/storage/'. $lista['image']) }}">
 	            			</div>
-	            			<div class="w-25">
+	            			<div class=" pl-2 ">
 	            				<p>{{ $lista['nombre']}}</p>
-	                            <p>precio por unidad</p>
+	                            <p>${{ $lista['precio_u']}} x{{ $lista['cantidad']}}</p>
 	            			</div>	                        	            			
 	            		</div>
 	            		<div class="col-6 d-flex  justify-content-end">
 	            			
-	            				<p class="item_precio">precio</p>
-	                            <a href="{{ route('cart.delete', $lista['id']) }}" class="boton-delete btn btn-danger rounded-0">x</a>                        
+	            			<p class="item_precio ">${{ $lista['precio']}}</p>
+	            			<div class="item_delete">
+	            				<a href="{{ route('cart.delete', $lista['id']) }}">x</a> 
+	            			</div>	                                               
 	            		</div>	            			        
 	            	</div>
 	                 @endforeach 
 	                <div class="content_botones m-auto">
-	                	<button class="btn button rounded-0 mt-5">Continuar comprando</button>
+	                	<a  href="{{route('landing-page.index')}}">
+	                	    <button class="btn button rounded-0 mt-5">Continuar comprando</button>
+	                	</a>
 	                	<button class="btn botones_compra button-primary rounded-0 mt-5">Procesar compra</button>
                     </div>                      	
 	            </div>
@@ -49,9 +57,4 @@
 	    @endif
 	</div>	
 </div>
-
-@endsection
-
-@section('js')
-
 @endsection

@@ -16,7 +16,7 @@ class ShopController extends Controller
     public function show($request = null){
     	if ($request) {
     		$product = Productos::where('id', $request)->firstOrFail();
-            $images = Images::where('id_image_pruduct', $product->id)->get();
+            $images = Images::where('id_image_pruduct', 2)->get();
             
             $array = array(
                     'productos' => $product,
@@ -30,7 +30,6 @@ class ShopController extends Controller
     	}
     }
 }
-
 
 /*
 $url = Storage::url('c.png');

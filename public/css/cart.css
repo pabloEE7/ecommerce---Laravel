@@ -17,10 +17,23 @@
 	height: 30px;
 	padding: 0;
 }
+.item_img img{
+	width: auto; 
+	max-height: 60px; 
+	margin: auto;
+}
 .item_precio{
 	padding-right: 100px;
 }
+.item_delete a{
+	background-color: #F5F5F5; 
+	padding: 8px 14px 8px 14px;
+}
+
 @media (max-width: 770px) {
+	.content_item{
+        font-size: 13px;
+	}
     .botones_compra{
     	float: none;    	
     }
@@ -28,6 +41,11 @@
         width: 100%;
     }
     .item_precio{
-	    padding-right: 10px;
+	    padding-right: 20px;
+    }
+}
+@media (max-width: 400px) {
+	.item_img img{ 
+	    max-height: 45px; 
     }
 }

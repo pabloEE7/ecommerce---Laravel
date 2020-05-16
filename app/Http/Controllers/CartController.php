@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Categorias;
 use App\Productos;
+use App\Images;
 
 class CartController extends Controller
 {
@@ -18,16 +19,20 @@ class CartController extends Controller
 
     	$id = $request->input('id');
         $cantidad = $request->input('cantidad');
-        $precio = $request->input('precio');
+        $precio_u = $request->input('precio_u');
+        $precio = $request->input('precio');      
 
         $productos = Productos::find($id);
+        $images = Images::where('id_image_pruduct', $productos->id_image)->get();
         $cart = session()->get('cart');
 
         if (!$cart) {
             $cart = [
                 $id => [
-                    'id' => $productos->id,
+                    'id' => $id,
+                    'image' => $images[0]->nombre, 
                     'nombre' => $productos->nombre,
+                    'precio_u' => $precio_u,                   
                     'cantidad' => $cantidad,
                     'precio' => $precio
                 ]
@@ -37,20 +42,13 @@ class CartController extends Controller
             return redirect(route('cart.index') )->with('success','1');         
         }
 
-        /*if (isset($cart[$id])) {
-            $cart[$id] = [
-            'id' => $productos->id,
-            'nombre' => $productos->nombre,
-            'cantidad' => $cantidad,
-            'precio' => $precio
-            ];
-            session()->put('cart', $cart);
-            return redirect(route('cart.index') )->with('success','1');
-        }*/
+        
 
         $cart[$id] = [
-            'id' => $productos->id,
+            'id' => $id,
+            'image' => $images[0]->nombre,
             'nombre' => $productos->nombre,
+            'precio_u' => $precio_u,
             'cantidad' => $cantidad,
             'precio' => $precio
         ];
@@ -58,8 +56,6 @@ class CartController extends Controller
 
         return redirect(route('cart.index') )->with('success','1');
     }
-
-
 
     public function deleteCart(Request $request, $id)
     {

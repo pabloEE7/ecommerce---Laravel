@@ -5,10 +5,7 @@
 @endsection
 
 @section('content')
-  <div id="contenedor">
-    <div class="">
-      <img src="{{ asset('image/image1.jpg') }}" class="w-100">
-    </div>       
+  <div id="contenedor">      
     <div class="content_productos">
       @foreach($productos as $lista)
         <div class="panel_product border">
@@ -29,9 +26,7 @@
         <script type="text/javascript">
           
         </script>
-      @endforeach		       	      	    
+      @endforeach                       
     </div>       
   </div>
 @endsection
-
-

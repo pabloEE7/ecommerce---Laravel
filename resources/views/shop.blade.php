@@ -20,8 +20,7 @@
                       <img src="{{ asset( '/storage/'. $lista->nombre) }}" class="img-fluid rounded d-block">
                     </div>
                   @endforeach
-                </div>
-                
+                </div>              
             </div>
             
             <div class="panel_ col-md-6 pb-4">
@@ -30,32 +29,26 @@
                       <form action="{{ action('CartController@store') }}" method="GET">             
                         <label class="precio">$<i id="shop_precio">{{ $productos->precio }}</i></label>
                         <div class="">
-                            <div class="form-group form-inline">
-                                
+                            <div class="form-group form-inline">                              
                                 <label for="shop_cantidad">Cantidad</label>
                                 <input type="text" name="cantidad"  id="shop_cantidad" class="form-control ml-2" value="1" style="width: 70px; text-align: center;">                    
                             </div>
                         </div>                    
-                        <div class="botones_pago row">
-                               
+                        <div class="botones_pago row">                               
                         </div>                    
+                      <input type="hidden" name="id" value="{{ $productos->id }}"> 
+                      <input type="hidden" name="precio" id="shop_precio_input" value="{{ $productos->precio }}">
+                      <input type="hidden" name="precio_u" value="{{ $productos->precio }}">
 
-                      <input type="hidden" name="precio" id="shop_precio_input" class="" value="{{ $productos->precio }}">
-                      <input type="hidden" name="id" value="{{ $productos->id }}">
                       <input type="submit" value="Agregar al carrito" class="button button-plain">
-                    </form> 
-                    
-                    
-
-
-                    
-                                     
+                    </form>                                      
                 </div>                  
             </div>
         </div>
       <hr class=""> 
       <div>
         <h3>Descripcion</h3>
+        <p>asd</p>
       </div>        
     </div>
   </div>

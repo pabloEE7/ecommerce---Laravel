@@ -23,11 +23,21 @@
 	height: 200px;
 	margin: auto;
 	display: flex;
+	justify-content: center;
 	align-items: center;
 }
 .product_img{
 	width:97%;
 	height: 180px;	
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.product_img img{
+	width: auto;
+	max-height: 170px;	
 	margin: auto;
 }
 .panel_product_info{

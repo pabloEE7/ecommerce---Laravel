@@ -10,9 +10,10 @@
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    
     @yield('css')
 
     <!-- Font Awesome JS -->
@@ -27,32 +28,31 @@
         <!-- Page Content Holder -->
         <div id="contenedor">
             <nav class="navbar navbar-expand-lg navbar-light nav-loyout" style="background-color: #000009;">
-                <a href="{{route('landing-page.index')}}" class="a">e-commerce</a>                   
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+                <a href="{{route('landing-page.index')}}" class="a">e-commerce</a>  
 
-                    <div class="collapse navbar-collapse nav-loyout " id="navbarSupportedContent">
-                        <div class="m-auto">
-                        <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-  
-                            <input class="form-control form-control-sm ml-3 w-75 border-buttom" type="text" placeholder="Search" aria-label="Search">
-                            <button class="boton-search"><i class="fas fa-search" aria-hidden="true"></i></button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse nav-loyout " id="navbarSupportedContent">
+                    <div class="m-auto">
+                        <form  action="{{ action('LandingPageController@index') }}" method="GET" class="form-inline d-flex justify-content-center md-form form-sm mt-0"> 
+                            <input  type="text" name="search" class="form-control form-control-sm ml-3 w-75 border-buttom" placeholder="Search" aria-label="Search">
+                            <button type="submit" class="boton-search"><i class="fas fa-search" aria-hidden="true"></i></button>
                         </form>
-                        </div>
-                        <ul class="nav navbar-nav ml-auto"  style="color: white;">
-                            <li class="">
-                                <a class="a" href="#">Categorias</a>
-                            </li>
-                            <li class="">
-                                <a class="a" href="{{route('cart.index')}}">Cart</a>
-                            </li>
-                        </ul>
                     </div>
+                    <ul class="nav navbar-nav ml-auto"  style="color: white;">
+                        <li class="">
+                            <a class="a" href="#">Categorias</a>
+                        </li>
+                        <li class="">
+                            <a class="a" href="{{route('cart.index')}}">cart<a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
             
             @yield('content')
-
             <div class="footer">
                 <footer></footer>
             </div>

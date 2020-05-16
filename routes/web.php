@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', 'LandingPageController@index')->name('landing-page.index');
+Route::get('/{search?}', 'LandingPageController@index')->name('landing-page.index');
+Route::get('/search', 'LandingPageController@search')->name('landing-page.search');
 Route::get('/home', 'HomeController@index');
 Route::post('/home/save/', 'HomeController@save')->name('home.save');
 
@@ -17,6 +18,5 @@ Route::get('/delete-cart/{id?}', 'CartController@deleteCart')->name('cart.delete
 Route::get('/delete-cart-all/{id?}', 'CartController@deleteCartAll')->name('cart.deleteAll');
 
 
-
-
+?>
 
