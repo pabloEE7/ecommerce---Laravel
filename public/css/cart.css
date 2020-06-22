@@ -8,10 +8,10 @@
 	padding: 20px;
 }
 
-
-.botones_compra{
+.cont_compra{
 	float: right;
 }
+
 .boton-delete{
     background-color: red;
 }
@@ -20,11 +20,12 @@
 }
 .item_img img{
 	width: auto; 
+	max-width: 60px;
 	max-height: 60px; 
 	margin: auto;
 }
 .item_precio{
-	padding-right: 10px;
+	padding-right: 100px;
 }
 .item_delete button{
 	border: none;
@@ -37,10 +38,10 @@
 	.content_item{
         font-size: 13px;
 	}
-    .botones_compra{
+    .cont_compra{
     	float: none;    	
     }
-    .content_botones button{
+    .content_botones button, .content_botones input{
         width: 100%;
     }
     .item_precio{

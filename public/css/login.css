@@ -1,0 +1,16 @@
+.form-control-user{
+	height: 47px;
+	border-radius: 25px;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color:  #e74a3b;
+  border-color:  #e74a3b;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  background-color: #d0211c;
+  border-color: #c51f1a;
+}

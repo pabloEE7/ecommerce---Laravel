@@ -8,6 +8,11 @@ use App\Categorias;
 use App\Productos;
 use App\Images;
 
+// SDK de Mercado Pago
+require __DIR__ .  '/../../../mercadoPago/vendor/autoload.php';
+
+
+
 class CartController extends Controller
 {
     //
@@ -46,8 +51,6 @@ class CartController extends Controller
             return redirect(route('cart.index') )->with('success','1');         
         }
 
-        
-
         $cart[$id] = [
             'id' => $id,
             'image' => $images[0]->nombre,
@@ -80,13 +83,39 @@ class CartController extends Controller
         return redirect(route('cart.index') )->with('success','1');
     }
 
-    public function updateCart(Request $request, $id)
+    public function pay_cart(Request $request)
     {
+
         $cart = $request->session()->get('cart');
+        $array = [];
+
+        // Agrega credenciales
+        \MercadoPago\SDK::setAccessToken(
+            'TEST-1492222152862518-051723-4e2a7903df879399d31edbf1a6ca7cb3-245258758'
+        );
+        $preference = new \MercadoPago\Preference();  
+
+        foreach ($cart as $lista) {
+
+            $item = new \MercadoPago\Item();
+            
+            $item->title = $lista['nombre'];
+            $item->quantity =  $lista['cantidad'];
+            $item->unit_price =  $lista['precio_u'];
+
+            array_push($array, $item);        
+        }
         
-        unset($cart[$id]);
-        session()->put('cart', $cart);
-        return $cart;
+        $preference->items = $array;
+
+        $preference->save();
+                  
+        return view('pay_cart', array('preference_id' => $preference->id));
+    }
+
+    public function pay(Request $request)
+    {
+        
     }
 
 }

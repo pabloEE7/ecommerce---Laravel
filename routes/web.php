@@ -5,19 +5,30 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/home', 'HomeController@index');
-Route::post('/home/save/', 'HomeController@save')->name('home.save');
+Route::get('/pedidos/total/', 'PedidosController@pedidosTotales')->name('pedidos.totales');
+Route::get('/pedidos/actual/', 'PedidosController@pedidosActuales')->name('pedidos.actuales');
 
-Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
+Route::get('/cadetes', 'CadetesController@index')->name('cadetes.index');
 
-Route::get('/cart/{id?}', 'CartController@index')->name('cart.index');
-Route::get('/add-to-cart', 'CartController@store')->name('cart.store');
-Route::get('/delete-cart/{id?}', 'CartController@deleteCart')->name('cart.delete');
-Route::get('/delete-cart-all/{id?}', 'CartController@deleteCartAll')->name('cart.deleteAll');
+Route::get('/comercios', 'ComerciosController@index')->name('comercios.index');
 
-Route::get('/{search?}', 'LandingPageController@index')->name('landing-page.index');
 
-?>
+Route::get('/', 'LandingController@index')->name('landing.index');
+
+
+
+
+
+
+
+
+
+
+
+
 

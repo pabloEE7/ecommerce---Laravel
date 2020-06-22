@@ -1,3 +1,7 @@
+.p-info{
+	font-size: 20px;
+}
+
 .content_{
 	/*width: 100%;*/
 	min-height: 100vh;
@@ -6,6 +10,8 @@
 }
 .content_blogal{	
 	padding: 20px;
+	width: 80%;
+	margin: auto;
 }
 .panel_{
 }
@@ -34,7 +40,8 @@
 }
 .image_select img{
 	width: auto;
-	max-height: 400px;
+	/*max-width: 400px;*/
+	max-height: 400px;	
 	margin: auto;
 }  
 .content_images{
@@ -42,7 +49,6 @@
     display: flex;
 }
 .images{
-
 	width: 60px;
 	height: 60px;
 	margin: 8px 8px 8px 0;
@@ -50,7 +56,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 }
 .images img{
 	width: auto;
@@ -65,10 +70,14 @@
 }
 
 @media (max-width: 600px) {
+	.content_blogal{
+		width: 100%;
+	}
     .content_image_select{
 	    height: 250px;
 	}
 	.image_select img{
+		/*max-width: 200px;*/
 	    max-height: 200px;
     }  
     .images img{
